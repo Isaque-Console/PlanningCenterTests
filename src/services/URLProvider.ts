@@ -2,19 +2,7 @@ import dayjs from 'dayjs';
 import { getDayOfTheWeek, subtractDate } from "../utils/dateUtils"
 
 const todaysServiceTypeGenerator = (): string => {
-   let serviceType: string = "";
-
-   const dayOfTheWeek: string = getDayOfTheWeek();
-
-   if (!dayOfTheWeek.length) return "";
-
-   if (dayOfTheWeek === "Terça-Feira") {
-      serviceType = "CULTO_DE_ENSINO";
-   } else if (dayOfTheWeek === "Domingo") {
-      serviceType = dayjs().hour() > 13 ? "DOMINGO_NOITE" : "DOMINGO_MANHA";
-   }
-
-   return serviceType;
+   return "DOMINGO_NOITE";
 }
 
 const todaysPlanIdGenerator = (todaysServiceType: any): number => {
