@@ -67,10 +67,24 @@ function generateImage(sickNames) {
                         if (splittedArray.length > 1) {
                             splittedArray[1] = (0, arrayUtils_1.getSecondName)(splittedArray);
                             splittedArray.length = 2;
-                            namesDY -= 19;
+                            namesDY -= 28;
                         }
                         else {
                             namesDY -= 10;
+                        }
+                        namesWithWhiteSpace = splittedArray;
+                        fontSize = 37;
+                        namesDX = 255;
+                    }
+                    else if (sickNames.length === 2) {
+                        const splittedArray = sickNames[i].split(" ");
+                        if (splittedArray.length > 1) {
+                            splittedArray[1] = (0, arrayUtils_1.getSecondName)(splittedArray);
+                            splittedArray.length = 2;
+                            namesDY += 150;
+                        }
+                        else {
+                            namesDY += 165;
                         }
                         namesWithWhiteSpace = splittedArray;
                         fontSize = 37;

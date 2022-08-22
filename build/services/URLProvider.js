@@ -1,23 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateURL = void 0;
-const dayjs_1 = __importDefault(require("dayjs"));
 const dateUtils_1 = require("../utils/dateUtils");
 const todaysServiceTypeGenerator = () => {
-    let serviceType = "";
-    const dayOfTheWeek = (0, dateUtils_1.getDayOfTheWeek)();
-    if (!dayOfTheWeek.length)
-        return "";
-    if (dayOfTheWeek === "Terça-Feira") {
-        serviceType = "CULTO_DE_ENSINO";
-    }
-    else if (dayOfTheWeek === "Domingo") {
-        serviceType = (0, dayjs_1.default)().hour() > 13 ? "DOMINGO_NOITE" : "DOMINGO_MANHA";
-    }
-    return serviceType;
+    return "DOMINGO_NOITE";
 };
 const todaysPlanIdGenerator = (todaysServiceType) => {
     const dayOfTheWeek = (0, dateUtils_1.getDayOfTheWeek)();
