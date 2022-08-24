@@ -6,8 +6,8 @@
  * @param title The title from activity that i want
  * @returns a string that contains the item description
  */
-export const getDescriptionByTitle = async (request: any, title: Array<string>): Promise<string> => {
-    const description = await request.data.data.filter((activity: any) => {
+export const getDescriptionByTitle = async (response: any, title: Array<string>): Promise<string> => {
+    const description = await response.data.data.filter((activity: any) => {
         if (activity) {
             const titleWithoutAccent: string = activity.attributes.title.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
             if (title.includes(titleWithoutAccent)) {
@@ -20,9 +20,22 @@ export const getDescriptionByTitle = async (request: any, title: Array<string>):
 }
 
 export const convertDescriptionToArray = (description: string): Array<string> => {
-    const splittedArray = description.replace(/(\r\n|\n|\r)/gm, "").split("-");
-    const arrayOfNames = splittedArray.map(name => name.trim());
-    arrayOfNames.shift();
+    const splittedArray: string[] = description.split("\n");    
+    let arrayOfNames: string[] = verifyIfIsName(splittedArray);
+
+    return arrayOfNames;
+}
+
+export const verifyIfIsName = (splittedByLineBreak: string[]): string[] => {
+    let arrayOfNames: string[] = [];
+
+    splittedByLineBreak.forEach(name => {
+        console.log(name);
+        
+        if (name.trim()[0] === "-") {           
+            arrayOfNames.push(name.replace("-", "").trim().slice(0,name.length));
+        }
+    })
 
     return arrayOfNames;
 }

@@ -98,7 +98,7 @@ function generateImage(sickNames) {
                             namesDY -= 20;
                         }
                         else {
-                            namesDY -= 11;
+                            namesDY -= 3;
                         }
                         namesDX = 225;
                         namesWithWhiteSpace = splittedArray;

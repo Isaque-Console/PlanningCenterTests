@@ -49,7 +49,7 @@ async function generateImage(sickNames: string[]) {
 
             namesDYBase = namesDY;
 
-            for (let i = 0; i < sickNames.length; i++) {
+            for (let i = 0; i < sickNames.length; i++) {                  
                 context.drawImage(image, dx, dy, stickersWidth, stickersHeight);
 
                 if (sickNames.length === 1) {
@@ -77,13 +77,13 @@ async function generateImage(sickNames: string[]) {
                     fontSize = 37;
                     namesDX = 255;
                 } else if (sickNames.length < 10) {
-                    const splittedArray = sickNames[i].split(" ");
+                    const splittedArray = sickNames[i].split(" ");                    
                     if (splittedArray.length > 1) {
                         splittedArray[1] = getSecondName(splittedArray);
                         splittedArray.length = 2;
                         namesDY -= 20;
                     } else {
-                        namesDY -= 11;
+                        namesDY -= 3;
                     }
                     namesDX = 225;
                     namesWithWhiteSpace = splittedArray;
